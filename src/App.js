@@ -1,6 +1,7 @@
 import React from 'react';
 import ListForm from './components/TodoComponents/TodoForm';
 import TodoList from './components/TodoComponents/TodoList';
+import './App.css';
 
 const tasks = [
   {
@@ -46,12 +47,12 @@ class App extends React.Component {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
 
-constructor() {
-  super();
-  this.state ={
+// constructor() {
+  // super();
+  state ={
     task: tasks,
   }
-}
+// }
 
 addItem = newItemText => {
   const newItem = {
@@ -64,13 +65,37 @@ addItem = newItemText => {
   });
 };
 
+toggleItem = itemId => {
+  this.setState({
+    task: this.state.task.map(item => {
+      if(item.id === itemId) {
+        return {
+          ...item, completed: !item.completed
+        };
+      } else {
+        return item;
+      }
+    })
+  });
+};
+
+clearCompleted = () => {
+  return(
+    <div>
+      if 
+    </div>
+  );
+}
+
   render() {
     return (
       <div>
         <h2>Welcome to your To Do List!</h2>
         <ListForm addItem={this.addItem}/>
         
-        <TodoList task={this.state.task} />
+        <TodoList 
+          toggleItem={this.toggleItem}
+          task={this.state.task} />
       </div>
       
       

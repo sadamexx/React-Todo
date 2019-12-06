@@ -6,10 +6,10 @@ import Item from "./Todo";
 const TodoList = props => {
     return(
         <div>
-           {props.task.map(item =>(
-               <Item key={item.id} item={item} />
+           {props.task.map(item => (
+               <Item key={item.id} item={item} toggleItem={props.toggleItem} />
            ))} 
-           <button>Clear completed</button>
+           <button onClick={props.clearCompleted}>Clear completed</button>
         </div>
     );
 };
