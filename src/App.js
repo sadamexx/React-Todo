@@ -80,12 +80,18 @@ toggleItem = itemId => {
 };
 
 clearCompleted = () => {
-  return(
-    <div>
-      if 
-    </div>
-  );
-}
+  const taskNotDone = this.state.task.filter(item => !item.completed);
+  const taskDone = this.state.task.filter(item => item.completed);
+
+  this.setState({
+    task: taskNotDone
+  });
+
+  // localStorage.removeItem('storedData', taskDone);
+};
+  
+  
+
 
   render() {
     return (
@@ -95,7 +101,8 @@ clearCompleted = () => {
         
         <TodoList 
           toggleItem={this.toggleItem}
-          task={this.state.task} />
+          task={this.state.task}
+          clearCompleted={this.clearCompleted} />
       </div>
       
       

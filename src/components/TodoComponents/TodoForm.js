@@ -9,7 +9,8 @@ class ListForm extends Component {
     }
 
     handleChanges = event => {
-        this.setState({newItem: event.target.value});
+        this.setState({
+            newItem: event.target.value});
     };
 
     handleSubmit = event => {
